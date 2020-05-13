@@ -1,0 +1,33 @@
+<h2>What is your favorite movie?</h2>
+
+<div>
+<label for="movieName">Name: </label>
+<input type = "text" id="movieName" [(ngModel)] = "movieName">
+</div>
+
+<div>
+<label for="genre">Genre: </label>
+<input type = "text" id="genre" [(ngModel)]="movieGenre">
+</div>
+
+<div>
+<label for="rating">Rating: </label>
+<input type="number" min="0" max="5" step="1" id="rating" [(ngModel)]="movieRating">
+</div>
+
+<button (click)="clickHandler()">Submit</button>
+
+<div *ngIf="apiError">
+   {{apiError}}
+</div>
+
+<div *ngIf="apiResponse">
+  Thanks for your submission!
+<br>
+  Your favorite movie is <br>
+  Movie: {{apiResponse.name}} <br>
+  Genre: {{apiResponse.genre}} <br>
+  Rating: {{apiResponse.rating}} <br>
+
+
+</div>
